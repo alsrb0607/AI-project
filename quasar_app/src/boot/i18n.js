@@ -1,5 +1,5 @@
 import { createI18n } from 'vue-i18n'
-import messages from 'src/i18n'
+import messages from 'src/i18n/index.js'
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 

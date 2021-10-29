@@ -67,6 +67,7 @@
         class="bg-white shadow-1 rounded-borders"
       >
         <q-carousel-slide :name="1" class="column no-wrap flex-center" height="360px">
+          <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
           <div class="q-mt-md text-center text-weight-bold" style="font-size: 17px">
             {{ $t('info_carousel_title') }}<br>
              </div>
@@ -78,7 +79,7 @@
           </div>
         </q-carousel-slide>
         <q-carousel-slide :name="2" class="column no-wrap flex-center">
-            <!-- <q-img style="width: 75px" src="~assets/icons/chest.png" />  -->
+           <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
           <div class="q-mt-md text-center">
             {{ $t('info_chest') }}
 
@@ -92,6 +93,7 @@
        height="610px"
         width= "350px"
     />{{ $t('info_carousel_ex1') }}
+    <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
 
 
           </div>
@@ -104,6 +106,7 @@
        height="610px"
         width= "350px"
     />{{ $t('info_carousel_ex2') }}
+    <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
 
           </div>
         </q-carousel-slide>
@@ -130,7 +133,7 @@
            <q-btn  flat size="30px"  text-color="primary" @click="popUp2">
           >
         </q-btn>
-
+  
   <q-dialog v-model="carousel2" full-height>
     <q-carousel
       transition-prev="slide-right"
@@ -145,6 +148,7 @@
       class="bg-white shadow-1 rounded-borders"
     >
       <q-carousel-slide :name="1" class="column no-wrap flex-center">
+        <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
       <div class="q-mt-md text-center text-weight-bold" style="font-size: 17px; width: 360px">
             {{ $t('info_carousel_title') }}<br>
              </div> 
@@ -153,7 +157,7 @@
         </div>
       </q-carousel-slide>
       <q-carousel-slide :name="2" class="column no-wrap flex-center">
-  
+       <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
         <div class="q-mt-md text-center">
       {{ $t('info_brain') }}
         </div>
@@ -166,6 +170,7 @@
        height="610px"
         width= "350px"
     />{{ $t('info_carousel_ex1') }}
+    <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
 
           </div>
         </q-carousel-slide>
@@ -177,6 +182,7 @@
        height="610px"
         width= "350px"
     />{{ $t('info_carousel_ex2') }}
+    <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
 
           </div>
         </q-carousel-slide>
@@ -217,6 +223,7 @@
         class="bg-white shadow-1 rounded-borders"
       >
         <q-carousel-slide :name="1" class="column no-wrap flex-center">
+          <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
           <div class="q-mt-md text-center text-weight-bold" style="font-size: 17px">
           {{ $t('info_carousel_title') }}<br>
           </div> 
@@ -226,7 +233,7 @@
           </div>
         </q-carousel-slide>
         <q-carousel-slide :name="2" class="column no-wrap flex-center">
-
+          <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
           <div class="q-mt-md text-center">
             {{ $t('info_skin') }}
 
@@ -240,6 +247,7 @@
        height="610px"
         width= "350px"
     />{{ $t('info_carousel_ex1') }}
+    <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
 
           </div>
         </q-carousel-slide>
@@ -251,6 +259,7 @@
        height="610px"
         width= "350px"
     />{{ $t('info_carousel_ex2') }}
+    <q-btn dense flat icon="close" v-close-popup class="absolute-top-right"  />
 
           </div>
         </q-carousel-slide>

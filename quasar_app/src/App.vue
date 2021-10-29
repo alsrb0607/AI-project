@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import { defineComponent , ref} from 'vue';
+import { defineComponent , ref } from 'vue';
 import Splash from './components/Splashs/Splash';
 import { LocalStorage, useQuasar, setCssVar, getCssVar } from 'quasar'
 import { useI18n } from 'vue-i18n'
@@ -52,8 +52,13 @@ export default defineComponent({
       if ($q.localStorage.getItem('language') == null) {
           $q.localStorage.set('language', 'ko')
       }
+      if ($q.localStorage.getItem('powerSaving') == null) {
+          $q.localStorage.set('powerSaving', false)
+      }
+      if ($q.localStorage.getItem('email') == null) {
+          $q.localStorage.set('email', false)
+      }
       locale.value = $q.localStorage.getItem('language')
-      
       } catch (e) {
         console.log('error', e)
       }  

@@ -1,6 +1,9 @@
 import argparse
 import time
 from pathlib import Path
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname("ipAdress.py"))))
 
 import cv2
 import torch
@@ -22,13 +25,16 @@ from PIL import Image
 from flask import Flask, render_template, request, redirect
 from flask_cors import CORS, cross_origin 
 
-
+from ipAdress import ipAdress, port_chest
 
 ## 서버 띄우고 접속 허용
 app = Flask(__name__)
-# 
+# 보안
 CORS(app)
 
+# url 관련 변수
+ipAdress = ipAdress
+port = port_chest
 
 @app.route("/predict", methods=["GET", "POST"])
 # @app.route("/predict", methods=["POST"])
@@ -247,7 +253,7 @@ def detect(save_img=False):
         diagnosis = {
             "name": diagnosis_label.split(' ')[0],
             "rate": diagnosis_label.split(' ')[1],
-            'img_url': "http://localhost:5000/static/exp/"+file_name+".jpg",
+            'img_url': ipAdress + f"{port}" + "/static/exp/" + file_name + ".jpg",
         }
     else:
         diagnosis = {
@@ -263,4 +269,4 @@ if __name__ == '__main__':
     parser.add_argument("--port", default=5000, type=int, help="port number")
     args = parser.parse_args()
     print(args)
-    app.run(host="0.0.0.0", port=args.port)  # debug=True causes Restarting with stat
+    app.run(host="0.0.0.0", port=port_chest)  # debug=True causes Restarting with stat

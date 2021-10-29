@@ -1,9 +1,7 @@
 <template>
     <div>
       <Particles
-        id="tsparticles"
-        :particlesInit="particlesInit"
-        :particlesLoaded="particlesLoaded"
+        id="tsparticles"  
         :options="{
             background: {
                 color: {

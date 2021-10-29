@@ -52,14 +52,14 @@
 
             <q-item tag="label">
                 <q-item-section>
-                    <row class="row justify-center">
+                    <div class="row justify-center">
                         <q-color 
                             v-model="colorPrimaryHex" 
                             no-header 
                             @click="setColor" 
                             style="width: 250px"
                         />
-                    </row>
+                    </div>
                 </q-item-section>
             </q-item>
             <div class="q-gutter-md row justify-center">
@@ -75,7 +75,7 @@
                 <q-item-label caption>{{ $t('setting_others_battery_detail') }}</q-item-label>
                 </q-item-section>
                 <q-item-section side >
-                <q-toggle color="primary" v-model="notif1" val="battery" />
+                <q-toggle color="primary" v-model="powerSaving" val="battery" />
                 </q-item-section>
             </q-item>
 
@@ -85,7 +85,7 @@
                 <q-item-label caption>{{ $t('setting_others_email_detail') }}</q-item-label>
                 </q-item-section>
                 <q-item-section side top>
-                <q-toggle color="primary" v-model="notif2" val="friend" />
+                <q-toggle color="primary" v-model="email" val="friend" />
                 </q-item-section>
             </q-item>
 
@@ -95,7 +95,7 @@
 </template>
 <script>
 // quasar dev list&list items - settings
-import { ref, onUpdated, onActivated, onDeactivated  } from 'vue'
+import { ref, onUpdated, onActivated, onDeactivated, watch  } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useQuasar, getCssVar, setCssVar  } from 'quasar'
 export default {
@@ -107,13 +107,14 @@ export default {
                 { value: 'ko', label: '한국어' }
             ]
         const darkMode = ref(false)
-        
+        const powerSaving = ref($q.localStorage.getItem("powerSaving"))
+        const email = ref($q.localStorage.getItem("email"))
+
         const colorPrimaryHex = ref(getCssVar('primary'))
         darkMode.value = $q.localStorage.getItem(darkMode) ? true : false
     
         const checkDarkMode = (() => {
-            // console.log('log Dark Mode', darkMode.value)
-            // darkMode.value ? false : true
+    
             $q.localStorage.set('darkMode', darkMode.value)
             $q.dark.set(darkMode.value)
         })
@@ -129,18 +130,25 @@ export default {
             locale.value = 'ko'
             $q.localStorage.set('language', 'ko')
         })
-        onUpdated(() => {
-        $q.localStorage.set('language', locale.value)
-    })
-        onDeactivated(() => {
-        $q.localStorage.set('language', locale.value)
-    })
+  
+        // watch(바라볼 변수, 변수가 변하면 실행할 함수)
+        watch(locale,() => {
+            $q.localStorage.set('language', locale.value)
+        })
+        
+        watch(powerSaving,() => {
+            $q.localStorage.set('powerSaving', powerSaving.value)
+        })
+        
+        watch(email,() => {
+            $q.localStorage.set('email', email.value)
+        })
         return {
             darkMode,
             locale,
             localeOptions,
-            notif1: ref(false),
-            notif2: ref(false),
+            powerSaving,
+            email,
             checkDarkMode,
             colorPrimaryHex,
             setColor,

@@ -9,10 +9,14 @@ import axios from 'axios'
 // "export default () => {}" function below (which runs individually
 // for each client)
 // const api = axios.create({ baseURL: 'https://api.example.com' })
-const api = axios.create({ baseURL: 'http://localhost:5000' })
-const api_brain = axios.create({ baseURL: 'http://localhost:5001' })
-const api_skin = axios.create({ baseURL: 'http://localhost:5002' })
-const apiDB = axios.create({ baseURL: 'http://localhost:3030' })
+
+// const ipAdress = 'http://localhost:'
+const ipAdress = 'http://192.168.1.96:'
+
+const api = axios.create({ baseURL: ipAdress + '5000' })
+const api_brain = axios.create({ baseURL: ipAdress + '5001' })
+const api_skin = axios.create({ baseURL: ipAdress + '5002' })
+const apiDB = axios.create({ baseURL: ipAdress + '3030' })
 
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
