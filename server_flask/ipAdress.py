@@ -5,7 +5,7 @@
 # sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname('파일명'))))
 
 # ipAdress = "http://localhost:"
-ipAdress = "http://192.168.1.96:"
+ipAdress = "http://192.168.1.95:"
 
 port_chest = 5000
 port_brain = 5001

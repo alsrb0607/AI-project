@@ -37,7 +37,7 @@
     <q-list bordered padding class="rounded-borders" style="max-width: 380px">
 
 
-      <q-item clickable v-ripple>
+      <q-item v-ripple>
         <q-item-section avatar>
           <q-avatar icon="las la-x-ray" color="primary" text-color="white" />
         </q-item-section>
@@ -48,8 +48,8 @@
         </q-item-section>
 
         <q-item-section side>
-        <q-btn  flat size="30px"  text-color="primary" @click="popUp1">
-      >
+        <q-btn icon="chevron_right" flat size="18px"  text-color="primary" @click="popUp1">
+   
     </q-btn>
           
 
@@ -115,7 +115,7 @@
         </q-item-section>
       </q-item>
 
-      <q-item clickable v-ripple>
+      <q-item v-ripple>
         <q-item-section avatar>
           <q-avatar icon="las la-brain" color="primary" text-color="white" />
         </q-item-section>
@@ -130,8 +130,8 @@
  
         <q-item-section side>
 
-           <q-btn  flat size="30px"  text-color="primary" @click="popUp2">
-          >
+           <q-btn icon="chevron_right" flat size="18px"  text-color="primary" @click="popUp2">
+   
         </q-btn>
   
   <q-dialog v-model="carousel2" full-height>
@@ -192,7 +192,7 @@
     </q-item>
 
 
-    <q-item clickable v-ripple>
+    <q-item v-ripple>
         <q-item-section avatar>
           <q-avatar icon="las la-allergies" color="primary" text-color="white" />
         </q-item-section>
@@ -205,8 +205,8 @@
         <q-item-section side>
 
       
-             <q-btn  flat size="30px"  text-color="primary" @click="popUp3">
-        >
+             <q-btn icon="chevron_right" flat size="18px"  text-color="primary" @click="popUp3">
+    
        </q-btn>
 
     <q-dialog v-model="carousel3" full-height>
@@ -297,21 +297,21 @@ export default {
    const urlbrain2 = ref()
    const urlskin1 = ref()
    const urlskin2 = ref()
+   
+   function getImage(){
+      urlchest1.value = '/images/info/infochest1_'+ $q.localStorage.getItem('language') +'.png'
+      urlchest2.value = '/images/info/infochest2_'+ $q.localStorage.getItem('language') +'.png'
+      urlbrain1.value = '/images/info/infobrain1_'+ $q.localStorage.getItem('language') +'.png'
+      urlbrain2.value = '/images/info/infobrain2_'+ $q.localStorage.getItem('language') +'.png'
+      urlskin1.value = '/images/info/infoskin1_'+ $q.localStorage.getItem('language') +'.png'
+      urlskin2.value = '/images/info/infoskin2_'+ $q.localStorage.getItem('language') +'.png'
+   }
+
    onActivated(() => {
-      urlchest1.value = '/images/infochest1_'+ $q.localStorage.getItem('language') +'.png'
-      urlchest2.value = '/images/infochest2_'+ $q.localStorage.getItem('language') +'.png'
-      urlbrain1.value = '/images/infobrain1_'+ $q.localStorage.getItem('language') +'.png'
-      urlbrain2.value = '/images/infobrain2_'+ $q.localStorage.getItem('language') +'.png'
-      urlskin1.value = '/images/infoskin1_'+ $q.localStorage.getItem('language') +'.png'
-      urlskin2.value = '/images/infoskin2_'+ $q.localStorage.getItem('language') +'.png'
+      getImage()
     })
     onUpdated(() => {
-      urlchest1.value = '/images/infochest1_'+ $q.localStorage.getItem('language') +'.png'
-      urlchest2.value = '/images/infochest2_'+ $q.localStorage.getItem('language') +'.png'
-      urlbrain1.value = '/images/infobrain1_'+ $q.localStorage.getItem('language') +'.png'
-      urlbrain2.value = '/images/infobrain2_'+ $q.localStorage.getItem('language') +'.png'
-      urlskin1.value = '/images/infoskin1_'+ $q.localStorage.getItem('language') +'.png'
-      urlskin2.value = '/images/infoskin2_'+ $q.localStorage.getItem('language') +'.png'
+      getImage()
     })
    
 
@@ -347,6 +347,8 @@ export default {
       urlbrain2,
       urlskin1,
       urlskin2,
+
+      getImage,
     
       carousel1,
       carousel2,

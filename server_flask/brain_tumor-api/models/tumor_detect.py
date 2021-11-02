@@ -35,6 +35,7 @@ class_names = ['Affected', 'Healthy']
 num_class = len(class_names)
 
 # 모델 만든 후
+PATH="./models/best_metric_model3(classification).pth"
 device = torch.device("cpu")
 model_classification = DenseNet121(spatial_dims=2, in_channels=1,
                     out_channels=num_class).to(device)
@@ -46,7 +47,7 @@ val_interval = 1
 auc_metric = ROCAUCMetric()
 
 # 파라미터 불러오기
-model_classification.load_state_dict(torch.load("./models/best_metric_model3(classification).pth", map_location=device))
+model_classification.load_state_dict(torch.load(PATH, map_location=device))
 
 # 데이터 불러오기 위한 Class
 class Dataset(torch.utils.data.Dataset):

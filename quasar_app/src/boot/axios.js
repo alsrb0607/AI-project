@@ -11,7 +11,7 @@ import axios from 'axios'
 // const api = axios.create({ baseURL: 'https://api.example.com' })
 
 // const ipAdress = 'http://localhost:'
-const ipAdress = 'http://192.168.1.96:'
+const ipAdress = 'http://192.168.1.95:'
 
 const api = axios.create({ baseURL: ipAdress + '5000' })
 const api_brain = axios.create({ baseURL: ipAdress + '5001' })

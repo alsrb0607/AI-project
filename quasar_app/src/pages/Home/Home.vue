@@ -90,7 +90,7 @@
             <q-card-section vertical>
             <q-card-section>  
             <span 
-            class="text-weight-medium text-h6"
+            class="text-weight-medium text-h6 "
             style="margin-top: 30px; margin-left: 15px width:150px; height:25px">{{ $t('home_btn_brain') }}</span>
             <span 
             class="text-weight-medium text-size-16"

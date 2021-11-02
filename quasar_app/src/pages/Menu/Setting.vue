@@ -104,7 +104,9 @@ export default {
         const { locale } = useI18n({ useScope: 'global' })
         const localeOptions = [
                 { value: 'en-US', label: 'English' },
-                { value: 'ko', label: '한국어' }
+                { value: 'ko', label: '한국어' },
+                { value: 'jp', label: '日本語' },
+                { value: 'eo', label: 'Esperanto' }
             ]
         const darkMode = ref(false)
         const powerSaving = ref($q.localStorage.getItem("powerSaving"))
